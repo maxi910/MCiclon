@@ -1,15 +1,20 @@
 import pandas as pd
 import matplotlib.pyplot as plt 
 import numpy as np 
+import os
 from procesamiento import load_excel_data, check_data_quality, calculate_frequencies
 from plot import plot_bar_chart, plot_temporal_trends, analyze_changes_vs_failures
 
 def main():
-    # Rutas de los archivos
+    print("Inicio del programa")
+
+    # Verificar rutas
     template_path = r"C:\Users\maxim\Desktop\Data\Template Hidrociclones V1.xlsx"
     data_path = r"C:\Users\maxim\Desktop\Data\Datos hidrociclones v1.xlsx"
-
-    # Cargar los datos
+    if not os.path.exists(template_path) or not os.path.exists(data_path):
+        print("Error: Una de las rutas no es válida.")
+        return
+    
     print("Cargando datos...")
     template_sheets, template_content = load_excel_data(template_path)
     _, data_content = load_excel_data(data_path)
