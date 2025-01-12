@@ -50,4 +50,4 @@ def main():
     analyze_changes_vs_failures(mantencion, category_col="Si Apex o Ciclon completo", failure_col="Falla")
 
     if __name__ == "__main__":
-    main()
+        main()
